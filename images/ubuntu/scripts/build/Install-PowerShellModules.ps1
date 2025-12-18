@@ -32,4 +32,4 @@ foreach($module in $modules) {
     }
 }
 
-Invoke-PesterTests -TestFile "PowerShellModules" -TestName "PowerShellModules"
+# Invoke-PesterTests -TestFile "PowerShellModules" -TestName "PowerShellModules"

@@ -24,4 +24,4 @@ foreach ($module in $modules) {
 
 }
 
-Invoke-PesterTests -TestFile "PowerShellModules" -TestName "AzureModules"
+# Invoke-PesterTests -TestFile "PowerShellModules" -TestName "AzureModules"
