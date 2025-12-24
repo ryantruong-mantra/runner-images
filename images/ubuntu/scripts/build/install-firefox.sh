@@ -17,7 +17,7 @@ GPG_KEY="/etc/apt/trusted.gpg.d/mozillateam_ubuntu_ppa.gpg"
 REPO_PATH="/etc/apt/sources.list.d/mozillateam-ubuntu-ppa-focal.list"
 
 # Install Firefox
-curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${GPG_FINGERPRINT}" | sudo gpg --dearmor -o $GPG_KEY
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x${GPG_FINGERPRINT}" | sudo gpg --batch --yes --dearmor -o $GPG_KEY
 echo "deb $REPO_URL $(lsb_release -cs) main" > $REPO_PATH
 
 apt-get update
@@ -32,7 +32,8 @@ echo "mozillateam $REPO_URL" >> $HELPER_SCRIPTS/apt-sources.txt
 echo 'pref("intl.locale.requested","en_US");' >> "/usr/lib/firefox/browser/defaults/preferences/syspref.js"
 
 # Download and unpack latest release of geckodriver
-download_url=$(resolve_github_release_asset_url "mozilla/geckodriver" "test(\"linux64.tar.gz$\")" "latest")
+# download_url=$(resolve_github_release_asset_url "mozilla/geckodriver" "test(\"linux64.tar.gz$\")" "latest")
+download_url="https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz"
 driver_archive_path=$(download_with_retry "$download_url")
 
 GECKODRIVER_DIR="/usr/local/share/gecko_driver"

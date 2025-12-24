@@ -104,4 +104,5 @@ rm $REPO_PATH
 # invoke_tests "Tools" "Docker"
 if [[ "${DOCKERHUB_PULL_IMAGES:-yes}" == "yes" ]]; then
     # invoke_tests "Tools" "Docker images"
+    true
 fi
